@@ -12,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.catrina.entidades.Cliente;
 import mx.itson.catrina.entidades.Cuenta;
+import mx.itson.catrina.entidades.Movimiento;
 
 /**
  *
@@ -84,18 +85,18 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("Seleccione el archivo a cargar :");
 
-        cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril ", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
         jLabel3.setText("Seleccione el mes:");
 
         tblCuenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null}
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "", ""
+                ""
             }
         ));
         tblCuenta.setGridColor(new java.awt.Color(0, 0, 0));
@@ -122,7 +123,7 @@ public class Main extends javax.swing.JFrame {
         lblCuentaBancaria.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCuentaBancaria.setText("Cuenta");
 
-        jLabel6.setText("Resumen");
+        jLabel6.setText("RESUMEN DEL PERIODO");
 
         tblMovimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,9 +136,9 @@ public class Main extends javax.swing.JFrame {
         tblMovimiento.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane5.setViewportView(tblMovimiento);
 
-        jLabel7.setText("Movi");
+        jLabel7.setText("DETALLE DE MOVIMIENTOS:");
 
-        jLabel8.setText("SALDO FINAL DEL PERIODO ");
+        jLabel8.setText("SALDO FINAL DEL PERIODO: ");
 
         lblResultado.setText("Resultado");
 
@@ -158,42 +159,32 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btnSeleccionar)
                 .addGap(87, 87, 87))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(45, 45, 45))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(lblResultado)
-                                        .addGap(36, 36, 36))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(270, 270, 270)
+                                .addComponent(jLabel1))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(61, 61, 61)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(33, 33, 33)
+                        .addComponent(lblResultado)
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,15 +202,16 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(cmbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
-                .addComponent(lblNombre)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,12 +248,60 @@ public class Main extends javax.swing.JFrame {
                 
                 
                 Cuenta cuenta = new Cuenta().deserializar(contenido);
-                lblNombre.setText(cuenta.getCliente().getNombre().toLowerCase());
+                
+                
+                lblNombre.setText(cuenta.getCliente().getNombre().toUpperCase());
                 lblCuentaBancaria.setText(cuenta.getProducto().toUpperCase());
                 
+                
+                
+                 DefaultTableModel modeloCliente = (DefaultTableModel) tblDatos.getModel();
+                     modeloCliente.setRowCount(0);
+                 
+                 DefaultTableModel modeloCuenta = (DefaultTableModel) tblCuenta.getModel();
+                   modeloCuenta.setRowCount(0);
+                 
+                    modeloCliente.addRow(new Object[] {
+                       "RFC: " + cuenta.getCliente().getRfc() });
+                   
+                    modeloCliente.addRow(new Object[] {
+                       "Domicilio : " + cuenta.getCliente().getDomicilio() });
+                    
+                    modeloCliente.addRow(new Object[] {
+                       "Cidudad: " + cuenta.getCliente().getCiudad() });
+                    
+                     modeloCliente.addRow(new Object[] {
+                       "Codigo Postal : "+ cuenta.getCliente().getCp() });
+                     
+            
+                     
+                     modeloCuenta.addRow(new Object[] {
+                       "CUENTA: " + cuenta.getCuenta() });
+                     modeloCuenta.addRow(new Object[] {
+                       "CLAVE: " + cuenta.getClabe()});
+                     modeloCuenta.addRow(new Object[] {
+                       "MONEDA: " + cuenta.getMoneda()});
+                     
+                     
+                     
+                      DefaultTableModel modeloMovimientos = (DefaultTableModel)tblMovimiento.getModel();
+                         modeloMovimientos.setRowCount(0);
+                      
+                   modeloMovimientos.setRowCount(0);
+                   for(Movimiento m: cuenta.getMovimientos()){
+                    modeloMovimientos.addRow(new Object[] {m.getDescripcion()});
+                     
+                     
+                     
+                     
+                     
+                     
+                 
+              
                     System.out.println(contenido);
                
                    }
+            }
                    
                   
                   
