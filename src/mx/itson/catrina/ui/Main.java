@@ -301,32 +301,27 @@ public class Main extends javax.swing.JFrame {
                          modeloMovimientos.setRowCount(0);
                       
                    modeloMovimientos.setRowCount(0);
+                   
+                   cuenta.getMovimientos().sort((mov1, mov2) -> mov1.getFecha().compareTo(mov2.getFecha()));
+                   
                    for(Movimiento m: cuenta.getMovimientos()){
-                       
                   
-                    
-                    
                         if(m.getTipo() == Tipo.DEPOSITO){
                       modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(),   m.getTipo(), 
-                          formatomoneda.format(m.getCantidad())});
+                          formatomoneda.format(m.getCantidad())   });
                        
                 }else if (m.getTipo() == Tipo.RETIRO){
                      modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(), m.getTipo(),
                          formatomoneda.format(m.getCantidad()) });
-                    
+                     
+                     
+                
                 }
                         
-                        
-                        
-                    
-                        
-                     
-                       
-                       
-                  
-                        
-                      
+       
                    }
+                   
+                   
                    
                   
                    
