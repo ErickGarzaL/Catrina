@@ -7,6 +7,7 @@ package mx.itson.catrina.entidades;
 
 import com.google.gson.Gson;
 import java.util.List;
+import mx.itson.catrina.enumeradores.Tipo;
 
 
 
@@ -20,8 +21,18 @@ public class Cuenta {
    private String clabe;
    private String moneda;
    private Cliente cliente;
-    private List<Movimiento> movimientos;
-     
+   private List<Movimiento> movimientos;
+   private Tipo tipo;
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    
      
    public Cuenta deserializar(String json){
         Cuenta cuenta =  new Cuenta();
@@ -81,4 +92,15 @@ public class Cuenta {
     public void setMovimientos(List<Movimiento> movimientos) {
         this.movimientos = movimientos;
     }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+    
 }

@@ -8,11 +8,20 @@ package mx.itson.catrina.ui;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.catrina.entidades.Cliente;
 import mx.itson.catrina.entidades.Cuenta;
 import mx.itson.catrina.entidades.Movimiento;
+import mx.itson.catrina.enumeradores.Tipo;
 
 /**
  *
@@ -130,7 +139,7 @@ public class Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FECHA", "DESCRIPCIÓN", "DEPÓSITO ", "RETIRO", "SUBTOTAL"
+                "FECHA", "DESCRIPCIÓN", "TIPO ", "CANTIDAD", "SUBTOTAL"
             }
         ));
         tblMovimiento.setGridColor(new java.awt.Color(0, 0, 0));
@@ -248,7 +257,8 @@ public class Main extends javax.swing.JFrame {
                 
                 
                 Cuenta cuenta = new Cuenta().deserializar(contenido);
-                
+                Locale local = new Locale("es","MX");
+                NumberFormat formatomoneda = NumberFormat.getCurrencyInstance(local);
                 
                 lblNombre.setText(cuenta.getCliente().getNombre().toUpperCase());
                 lblCuentaBancaria.setText(cuenta.getProducto().toUpperCase());
@@ -258,8 +268,7 @@ public class Main extends javax.swing.JFrame {
                  DefaultTableModel modeloCliente = (DefaultTableModel) tblDatos.getModel();
                      modeloCliente.setRowCount(0);
                  
-                 DefaultTableModel modeloCuenta = (DefaultTableModel) tblCuenta.getModel();
-                   modeloCuenta.setRowCount(0);
+                
                  
                     modeloCliente.addRow(new Object[] {
                        "RFC: " + cuenta.getCliente().getRfc() });
@@ -273,7 +282,8 @@ public class Main extends javax.swing.JFrame {
                      modeloCliente.addRow(new Object[] {
                        "Codigo Postal : "+ cuenta.getCliente().getCp() });
                      
-            
+                    DefaultTableModel modeloCuenta = (DefaultTableModel) tblCuenta.getModel();
+                    modeloCuenta.setRowCount(0);
                      
                      modeloCuenta.addRow(new Object[] {
                        "CUENTA: " + cuenta.getCuenta() });
@@ -285,11 +295,54 @@ public class Main extends javax.swing.JFrame {
                      
                      
                       DefaultTableModel modeloMovimientos = (DefaultTableModel)tblMovimiento.getModel();
+                       DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                       
+                       
                          modeloMovimientos.setRowCount(0);
                       
                    modeloMovimientos.setRowCount(0);
                    for(Movimiento m: cuenta.getMovimientos()){
-                    modeloMovimientos.addRow(new Object[] {m.getDescripcion()});
+                       
+                  
+                    
+                    
+                        if(m.getTipo() == Tipo.DEPOSITO){
+                      modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(),   m.getTipo(), 
+                          formatomoneda.format(m.getCantidad())});
+                       
+                }else if (m.getTipo() == Tipo.RETIRO){
+                     modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(), m.getTipo(),
+                         formatomoneda.format(m.getCantidad()) });
+                    
+                }
+                        
+                        
+                        
+                    
+                        
+                     
+                       
+                       
+                  
+                        
+                      
+                   }
+                   
+                  
+                   
+                   
+                 
+                  
+                  
+                   
+                     
+                   
+                   
+      
+            
+                
+                     
+               
                      
                      
                      
@@ -300,7 +353,7 @@ public class Main extends javax.swing.JFrame {
               
                     System.out.println(contenido);
                
-                   }
+                   
             }
                    
                   

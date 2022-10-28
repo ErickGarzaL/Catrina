@@ -14,6 +14,14 @@ public class Movimiento {
     private Date fecha;
     private String descripcion;
     private double cantidad ;
+    
+    
+    
+    
+    
+            
+    
+  
 
     
 

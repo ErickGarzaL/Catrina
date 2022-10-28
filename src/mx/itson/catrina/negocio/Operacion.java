@@ -5,7 +5,16 @@
  */
 package mx.itson.catrina.negocio;
 
+
 public class Operacion {
+    
+    
+    
+
+    
+   
+    
+
     
     
 }

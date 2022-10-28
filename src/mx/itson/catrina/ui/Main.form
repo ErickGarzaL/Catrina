@@ -318,8 +318,8 @@
               <Table columnCount="5" rowCount="0">
                 <Column editable="true" title="FECHA" type="java.lang.Object"/>
                 <Column editable="true" title="DESCRIPCI&#xd3;N" type="java.lang.Object"/>
-                <Column editable="true" title="DEP&#xd3;SITO " type="java.lang.Object"/>
-                <Column editable="true" title="RETIRO" type="java.lang.Object"/>
+                <Column editable="true" title="TIPO " type="java.lang.Object"/>
+                <Column editable="true" title="CANTIDAD" type="java.lang.Object"/>
                 <Column editable="true" title="SUBTOTAL" type="java.lang.Object"/>
               </Table>
             </Property>
