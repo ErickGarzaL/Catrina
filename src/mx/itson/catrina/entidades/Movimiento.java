@@ -14,15 +14,16 @@ public class Movimiento {
     private Date fecha;
     private String descripcion;
     private double cantidad ;
+    private double subtotal;
+     private double resultado;
+     private double retiro;
+     private double deposito;
     
     
-    
-    
-    
+     
+            
             
     
-  
-
     
 
     public Tipo getTipo() {
@@ -55,6 +56,38 @@ public class Movimiento {
 
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
+    }
+
+    public double getRetiro() {
+        return retiro;
+    }
+
+    public void setRetiro(double retiro) {
+        this.retiro = retiro;
+    }
+
+    public double getDeposito() {
+        return deposito;
+    }
+
+    public void setDeposito(double deposito) {
+        this.deposito = deposito;
     }
     
    

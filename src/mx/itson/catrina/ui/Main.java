@@ -11,9 +11,6 @@ import java.nio.file.Files;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.JFileChooser;
@@ -298,31 +295,56 @@ public class Main extends javax.swing.JFrame {
                        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
                        
                        
-                         modeloMovimientos.setRowCount(0);
+                   modeloMovimientos.setRowCount(0);
                       
                    modeloMovimientos.setRowCount(0);
+                   
+                
+                   
+                   
+                   
                    
                    cuenta.getMovimientos().sort((mov1, mov2) -> mov1.getFecha().compareTo(mov2.getFecha()));
                    
                    for(Movimiento m: cuenta.getMovimientos()){
-                  
+                       
+                       
+                       
+                      
+                      
+   
+                  m.setSubtotal(25000 );
+                       
+                       
                         if(m.getTipo() == Tipo.DEPOSITO){
+       
+                            
+                            m.setDeposito(m.getCantidad());
                       modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(),   m.getTipo(), 
-                          formatomoneda.format(m.getCantidad())   });
+                          formatomoneda.format(m.getCantidad()),m.getDeposito()    });
                        
                 }else if (m.getTipo() == Tipo.RETIRO){
+                    
+                     m.setRetiro( m.getSubtotal()- m.getCantidad() );
                      modeloMovimientos.addRow(new Object[]  {formato.format(m.getFecha()), m.getDescripcion(), m.getTipo(),
-                         formatomoneda.format(m.getCantidad()) });
+                         formatomoneda.format(m.getCantidad()), m.getRetiro()   });
                      
-                     
+                   
+          
                 
                 }
+                        
+                       
+                       
+ 
                         
        
                    }
                    
                    
+                
                    
+             
                   
                    
                    

@@ -23,16 +23,8 @@ public class Cuenta {
    private Cliente cliente;
    private List<Movimiento> movimientos;
    private Tipo tipo;
+  
    
-   
-   
-   
-   
-   
-   
-   
-   
-    
      
    public Cuenta deserializar(String json){
         Cuenta cuenta =  new Cuenta();
