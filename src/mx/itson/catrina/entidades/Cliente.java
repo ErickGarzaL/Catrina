@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mx.itson.catrina.entidades;
 
-import com.google.gson.Gson;
 
 public class Cliente {
     private String codigo;
@@ -16,19 +11,16 @@ public class Cliente {
     private String cp;
    
     
-    public Cliente deserializar(String json){
-        Cliente cliente =  new Cliente();
-        try{
-            cliente = new Gson().fromJson(json,Cliente.class);
-    }catch(Exception ex){
-        System.err.print("Ocurrio un error" +  ex.getMessage());
-    }
-        return cliente;
-    }
+ 
 
     public String getCodigo() {
         return codigo;
     }
+    
+    /**
+     * 
+     * @param codigo Almacena un numero codigo 
+     */
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -37,6 +29,10 @@ public class Cliente {
     public String getNombre() {
         return nombre;
     }
+    /**
+     * 
+     * @param nombre Representacion del nombre de usuario
+     */
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -45,14 +41,23 @@ public class Cliente {
     public String getDomicilio() {
         return domicilio;
     }
+    /**
+     * 
+     * @param domicilio Represeta el domicilio.
+     */
 
     public void setDomicilio(String domicilio) {
         this.domicilio = domicilio;
     }
+   
 
     public String getCiudad() {
         return ciudad;
     }
+    /**
+     * 
+     * @param ciudad  Represeta el ciudad.
+     */
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
@@ -61,6 +66,10 @@ public class Cliente {
     public String getRfc() {
         return rfc;
     }
+    /**
+     * 
+     * @param rfc  Represeta el RFC.
+     */
 
     public void setRfc(String rfc) {
         this.rfc = rfc;
@@ -69,6 +78,10 @@ public class Cliente {
     public String getCp() {
         return cp;
     }
+     /**
+      * 
+      * @param cp  Represeta el codigo postal.
+      */
 
     public void setCp(String cp) {
         this.cp = cp;
